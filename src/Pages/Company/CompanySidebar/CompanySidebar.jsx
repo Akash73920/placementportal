@@ -11,7 +11,7 @@ const CompanySidebar = () => {
       <button
         onClick={handlesidebar}
         type="button"
-        className="bg-gray-200 rounded-lg fixed top-0 left-0 inline-flex items-center p-2 mt-2 ms-3 text-sm text-gray-500 sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-700  dark:focus:ring-gray-600"
+        className="bg-blue-200 rounded-lg fixed top-0 left-0 inline-flex items-center p-2 mt-2 ms-3 text-sm text-blue-500 sm:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:text-blue-700  dark:focus:ring-blue-600"
       >
         <span className="sr-only">Open sidebar</span>
         <svg
@@ -33,11 +33,11 @@ const CompanySidebar = () => {
         <button
           onClick={handlesidebar}
           type="button"
-          className="inline-flex bg-gray-200 fixed right-2 top-0 items-center p-2 mt-2 ms-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-700  dark:focus:ring-gray-600"
+          className="inline-flex bg-blue-200 fixed right-2 top-0 items-center p-2 mt-2 ms-3 text-sm text-blue-500 rounded-lg sm:hidden hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-200 dark:text-blue-700  dark:focus:ring-blue-600"
         >
           <span className="sr-only">Close Sidebar</span>
           <svg
-            className="h-8 w-8 text-neutral-500"
+            className="h-8 w-8 text-blue-500"
             width="24"
             height="24"
             viewBox="0 0 24 24"
@@ -62,12 +62,12 @@ const CompanySidebar = () => {
         } `}
         aria-label="Sidebar"
       >
-        <div className="h-full px-3 flex flex-col justify-between py-4 overflow-y-auto bg-gray-100 ">
+        <div className="h-full px-3 flex flex-col justify-between py-4 overflow-y-auto bg-blue-100 ">
           <ul className="space-y-2 font-medium">
             <li>
-              <div className="flex items-center p-2 hover:text-white text-gray-900 rounded-lg  hover:bg-gray-700  group">
+              <div className="flex items-center p-2 hover:text-white text-blue-900 rounded-lg  hover:bg-blue-700  group">
                 <svg
-                  className="w-8 h-8 text-gray-500 transition duration-75 dark:text-gray-400  group-hover:text-white"
+                  className="w-8 h-8 text-blue-500 transition duration-75 dark:text-blue-400  group-hover:text-white"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
@@ -82,10 +82,10 @@ const CompanySidebar = () => {
             <li>
               <Link
                 to="/company/"
-                className="flex items-center p-2 hover:text-white text-gray-900 rounded-lg  hover:bg-gray-700  group"
+                className="flex items-center p-2 hover:text-white text-blue-900 rounded-lg  hover:bg-blue-700  group"
               >
                 <svg
-                  className="h-8 w-8 hover:text-gray-200 text-neutral-500"
+                  className="h-8 w-8 hover:text-blue-200 text-blue-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -107,10 +107,10 @@ const CompanySidebar = () => {
             <li>
               <Link
                 to="/company/addjobrole"
-                className="flex items-center p-2 hover:text-white text-gray-900 rounded-lg  hover:bg-gray-700  group"
+                className="flex items-center p-2 hover:text-white text-blue-900 rounded-lg  hover:bg-blue-700  group"
               >
                 <svg
-                  className="h-8 w-8 text-neutral-500"
+                  className="h-8 w-8 text-blue-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -128,10 +128,10 @@ const CompanySidebar = () => {
             <li>
               <Link
                 to="/company/listedroles"
-                className="flex items-center p-2 hover:text-white text-gray-900 rounded-lg  hover:bg-gray-700  group"
+                className="flex items-center p-2 hover:text-white text-blue-900 rounded-lg  hover:bg-blue-700  group"
               >
                 <svg
-                  className="h-8 w-8 text-neutral-500"
+                  className="h-8 w-8 text-blue-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -156,10 +156,10 @@ const CompanySidebar = () => {
             <li>
               <Link
                 to="/company/applications"
-                className="flex items-center p-2 hover:text-white text-gray-900 rounded-lg  hover:bg-gray-700  group"
+                className="flex items-center p-2 hover:text-white text-blue-900 rounded-lg  hover:bg-blue-700  group"
               >
                 <svg
-                  className="h-8 w-8 hover:text-gray-200 text-neutral-500"
+                  className="h-8 w-8 hover:text-blue-200 text-blue-500"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -179,10 +179,10 @@ const CompanySidebar = () => {
             <li>
               <Link
                 to="/changepassword"
-                className="flex items-center p-2 text-white hover:bg-slate-400 hover:text-gray-900 rounded-lg  bg-gray-700  group"
+                className="flex items-center p-2 text-white hover:bg-slate-400 hover:text-blue-900 rounded-lg  bg-blue-700  group"
               >
                 <svg
-                  className="h-8 w-8 hover:text-gray-200 text-neutral-500"
+                  className="h-8 w-8 hover:text-blue-200 text-blue-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"
@@ -203,10 +203,10 @@ const CompanySidebar = () => {
             <li>
               <Link
                 to="/"
-                className="flex items-center p-2 text-white hover:text-gray-900 rounded-lg hover:bg-slate-400 bg-gray-700  group"
+                className="flex items-center p-2 text-white hover:text-blue-900 rounded-lg hover:bg-slate-400 bg-blue-700  group"
               >
                 <svg
-                  className="h-8 w-8 hover:text-gray-200 text-neutral-500"
+                  className="h-8 w-8 hover:text-blue-200 text-blue-500"
                   width="24"
                   height="24"
                   viewBox="0 0 24 24"

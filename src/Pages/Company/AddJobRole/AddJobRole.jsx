@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { addJobRole } from "../../../api/Company/Company.api"; // Adjust the import path as needed
 
 export default function AddJobRole() {
   const [formData, setFormData] = useState({
@@ -32,13 +33,40 @@ export default function AddJobRole() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Here you would typically send the formData to your backend
-    console.log(formData);
-    // Reset form or show success message
-  };
 
+    const formDataToSend = new FormData();
+    for (const key in formData) {
+      if (formData.hasOwnProperty(key)) {
+        formDataToSend.append(key, formData[key]);
+      }
+    }
+
+    try {
+      await addJobRole(formDataToSend);
+      // Reset form or show success message
+      setFormData({
+        companyName: "",
+        jobRole: "",
+        jobDescription: "",
+        jobRequirements: "",
+        registrationDate: "",
+        companyImage: null,
+        minimumGPA: "",
+        maximumBacklogs: "",
+        tenthPercentage: "",
+        twelfthPercentage: "",
+        website: "",
+        phoneNumber: "",
+        eligibleBatch: "",
+      });
+      alert("Job role added successfully");
+    } catch (error) {
+      console.error("Error adding job role:", error);
+      alert("Failed to add job role");
+    }
+  };
   return (
     <div className="p-4 sm:ml-64 text-white min-h-screen">
       <div className="grid mb-4 pb-10 px-8 mx-4 rounded 0">

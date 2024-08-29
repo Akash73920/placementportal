@@ -5,7 +5,7 @@ import LandingPage from './Pages/LandingPage/LandingPage';
 import StudentDashboard from './Pages/Student/StudentSidebar/StudentSidebar';
 import StudentHome from './Pages/Student/StudentHome/StudentHome';
 import StudentSidebar from './Pages/Student/StudentSidebar/StudentSidebar';
-import CompanyDetails from './Pages/Admin/CompanyDetails/CompanyDetails';
+import CompanyDetails from './Components/CompanyDetails/CompanyDetails';
 import AppliedCompanies from './Pages/Student/AppliedCompanies/AppliedCompanies';
 import EducationDetails from './Pages/Student/Education Details/EducationDetails';
 
@@ -29,11 +29,12 @@ import StudentFilter from './Components/Test/Test';
 import SignIn from './Pages/Auth/SignIn/Signin';
 import ChangePassword from './Pages/Auth/ChangePassword/ChangePassword';
 
+// require('dotenv').config();
 
 
 function App() {
   return (
-    <div className="bg-[#222222]">
+    <div className="min-h-screen bg-[#172554]">
       <Router>
         <Routes>
           {/* Landing Page */}

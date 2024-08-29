@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { changeStudentPassword } from '../../../api/Student/Student.api';
+import { changeAdminPassword } from '../../../api/Admin/Admin.api';
+import { changeCompanyPassword } from '../../../api/Company/Company.api';
 
 const ChangePassword = () => {
   const [role, setRole] = useState('student');
@@ -6,26 +9,48 @@ const ChangePassword = () => {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState(null);
+  const [success, setSuccess] = useState(null);
 
   const handleRoleChange = (e) => {
     setRole(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (newPassword !== confirmPassword) {
       alert('New password and confirm password do not match');
       return;
     }
 
-    console.log(`Role: ${role}, Email: ${email}, Old Password: ${oldPassword}, New Password: ${newPassword}`);
-    // Handle password change logic here
+    try {
+      let response;
+      switch (role) {
+        case 'student':
+          response = await changeStudentPassword({ email, oldPassword, newPassword });
+          break;
+        case 'admin':
+          response = await changeAdminPassword({ email, oldPassword, newPassword });
+          break;
+        case 'company':
+          response = await changeCompanyPassword({ email, oldPassword, newPassword });
+          break;
+        default:
+          throw new Error('Invalid role selected');
+      }
+
+      setSuccess('Password changed successfully');
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   return (
     <div className="flex items-center justify-center min-h-screen">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-lg">
         <h2 className="text-2xl font-bold text-center">Change Password</h2>
+        {error && <div className="text-red-600">{error}</div>}
+        {success && <div className="text-green-600">{success}</div>}
         <form className="space-y-6" onSubmit={handleSubmit}>
           {/* Role Selection */}
           <div>

@@ -1,18 +1,35 @@
 import React, { useState } from 'react';
+import { studentLogin } from '../../../api/Student/Student.api';
+import { companyLogin } from '../../../api/Company/Company.api';
+import { adminLogin } from '../../../api/Admin/Admin.api';
 
 const SignIn = () => {
   const [role, setRole] = useState('student');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleRoleChange = (e) => {
     setRole(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(`Role: ${role}, Email: ${email}, Password: ${password}`);
-    // Handle sign-in logic here
+    try {
+      let response;
+      if (role === 'student') {
+        response = await studentLogin(email, password);
+      } else if (role === 'company') {
+        response = await companyLogin(email, password);
+      } else if (role === 'admin') {
+        response = await adminLogin(email, password);
+      }
+      console.log('Login successful:', response);
+      // Handle successful login (e.g., redirect to a dashboard)
+    } catch (error) {
+      setError(error.message || 'An error occurred during login');
+      console.error('Login failed:', error);
+    }
   };
 
   return (
@@ -68,6 +85,9 @@ const SignIn = () => {
               placeholder="Enter your password"
             />
           </div>
+
+          {/* Error Message */}
+          {error && <div className="text-red-500 text-sm">{error}</div>}
 
           {/* Submit Button */}
           <div>

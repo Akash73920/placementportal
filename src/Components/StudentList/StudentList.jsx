@@ -15,43 +15,43 @@ const StudentList = ({ batch, data }) => {
           <div className="flex flex-col">
             <div className="-my-2 overflow-x-auto">
               <div className="py-2 align-middle inline-block min-w-full">
-                <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg bg-white">
-                  <table className="min-w-full divide-y divide-gray-200">
+                <div className="shadow overflow-hidden border-b border-blue-200 sm:rounded-lg bg-white">
+                  <table className="min-w-full divide-y divide-blue-200">
                     <thead>
                       <tr>
-                        <th className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 bg-blue-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                           <div className="flex cursor-pointer">
                             <span className="mr-2">Roll No.</span>
                           </div>
                         </th>
-                        <th className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 bg-blue-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                           <div className="flex cursor-pointer">
                             <span className="mr-2">Student Name</span>
                           </div>
                         </th>
-                        <th className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 bg-blue-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                           <div className="flex cursor-pointer">
                             <span className="mr-2">Branch</span>
                           </div>
                         </th>
-                        <th className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 bg-blue-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                           <div className="flex cursor-pointer">
                             <span className="mr-2">Email</span>
                           </div>
                         </th>
-                        <th className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 bg-blue-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                           <div className="flex cursor-pointer">
                             <span className="mr-2">Status</span>
                           </div>
                         </th>
-                        <th className="px-6 py-3 bg-gray-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
+                        <th className="px-6 py-3 bg-blue-50 text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">
                           <div className="flex cursor-pointer">
                             <span className="mr-2">Details</span>
                           </div>
                         </th>
                       </tr>
                     </thead>
-                    <tbody className="bg-white divide-y divide-gray-200">
+                    <tbody className="bg-white divide-y divide-blue-200">
                       {data && data.length > 0 ? (
                         data.map((student, index) => (
                           <tr key={index}>
@@ -138,7 +138,7 @@ const StudentList = ({ batch, data }) => {
                                 onClick={() =>
                                   handleViewDetails(student.rollNo)
                                 }
-                                className="text-gray-200 p-2 rounded-sm bg-slate-600  hover:text-gray-900 hover:bg-slate-200"
+                                className="text-gray-200 p-2 rounded-sm bg-blue-600  hover:text-gray-900 hover:bg-blue-200"
                               >
                                 View Details
                               </button>

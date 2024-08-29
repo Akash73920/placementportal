@@ -1,8 +1,11 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import StudentList from "../../../Components/StudentList/StudentList";
+import { fetchStudentsFromAPI } from "../../../api//Admin/Admin.api"; 
 import SampleData from "../../../SampleData/StudentList";
 
 const AllStudents = () => {
+  const [students, setStudents] = useState(SampleData);
+
   const [openBatch, setOpenBatch] = useState(false);
   const [openBranch, setOpenBranch] = useState(false);
   const [openStatus, setOpenStatus] = useState(false);
@@ -10,6 +13,7 @@ const AllStudents = () => {
   const [selectedBatch, setSelectedBatch] = useState("");
   const [selectedBranch, setSelectedBranch] = useState("");
   const [selectedStatus, setSelectedStatus] = useState("");
+  
 
   const batchDropdownRef = useRef(null);
   const branchDropdownRef = useRef(null);
@@ -28,19 +32,16 @@ const AllStudents = () => {
   };
 
   const handleBatchSelection = (batch) => {
-    console.log(`Selected Batch: ${batch}`);
     setSelectedBatch(batch);
     setOpenBatch(false);
   };
 
   const handleBranchSelection = (branch) => {
-    console.log(`Selected Branch: ${branch}`);
     setSelectedBranch(branch);
     setOpenBranch(false);
   };
 
   const handleStatusSelection = (status) => {
-    console.log(`Selected Status: ${status}`);
     setSelectedStatus(status);
     setOpenStatus(false);
   };
@@ -66,15 +67,37 @@ const AllStudents = () => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
+  // Fetch students from the API using the function from admin.api.js
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        // Retrieve token from local storage
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          throw new Error("No token found. Please log in.");
+        }
+
+        // Use the function from admin.api.js to fetch students
+        const data = await fetchStudentsFromAPI(token);
+        setStudents(data);
+      } catch (error) {
+        console.error("Error fetching student data:", error.message);
+      }
+    };
+
+    fetchStudents();
+  }, []);
+
   // Filter the students based on the selected filters
-  const filteredStudents = SampleData.filter((student) => {
+  const filteredStudents = students.filter((student) => {
     return (
       (selectedBatch === "" || student.batch === parseInt(selectedBatch)) &&
       (selectedBranch === "" || student.branch === selectedBranch) &&
@@ -82,11 +105,9 @@ const AllStudents = () => {
     );
   });
 
-  console.log("Filtered Students:", filteredStudents);
-
   // Unique values for branch and status dropdowns
-  const branches = [...new Set(SampleData.map((student) => student.branch))];
-  const statuses = [...new Set(SampleData.map((student) => student.status))];
+  const branches = [...new Set(students.map((student) => student.branch))];
+  const statuses = [...new Set(students.map((student) => student.status))];
 
   return (
     <div>

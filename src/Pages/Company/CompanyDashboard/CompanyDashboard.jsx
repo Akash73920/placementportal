@@ -1,16 +1,41 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getDashboardDetails } from "../../../api/Company/Company.api";
 import CompanyJobListings from "../CompanyJobListing/CompanyJobListing";
 
-const CompanyDashboard = ({ studentsCount, companiesCount, batch }) => {
+const CompanyDashboard = () => {
+  const [dashboardData, setDashboardData] = useState({ studentsCount: 0, companiesCount: 0, batch: '' });
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchDashboardData = async () => {
+      try {
+        const data = await getDashboardDetails();
+        setDashboardData(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err);
+        setLoading(false);
+      }
+    };
+
+    fetchDashboardData();
+  }, []);
+
+  // if (loading) return <p>Loading dashboard data...</p>;
+  // if (error) return <p>Error loading dashboard data: {error.message}</p>;
+
+  const { studentsCount, companiesCount, batch } = dashboardData;
+
   return (
     <div>
       <div className="p-4 sm:ml-64 text-white min-h-screen">
-        <div className="grid mb-4 pb-10 px-8 mx-4 rounded ">
+        <div className="grid mb-4 pb-10 px-8 mx-4 rounded">
           <div className="grid grid-cols-12 gap-6">
             <div className="grid grid-cols-12 col-span-12 gap-6 xxl:col-span-9">
               <div className="col-span-12 mt-8">
                 <div className="flex items-center h-10 intro-y">
-                  <h2 className="mr-5 text-lg text-gray-900 font-medium truncate">
+                  <h2 className="mr-5 text-lg text-gray-50 font-medium truncate">
                     Dashboard
                   </h2>
                 </div>

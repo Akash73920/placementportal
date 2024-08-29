@@ -6,12 +6,12 @@ const education = {
     cgpa: "3.8",
     year: "2023",
   },
-  twelthGrade: {
+  Intermediate: {
     school: "Central High School",
     percentage: "92%",
     year: "2019",
   },
-  tenthGrade: {
+  HighSchool: {
     school: "Central High School",
     percentage: "90%",
     year: "2017",
