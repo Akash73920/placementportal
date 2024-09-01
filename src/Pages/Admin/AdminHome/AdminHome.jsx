@@ -10,6 +10,7 @@ import { getHodData } from "../../../api/Admin/Admin.api";
 //   Selected_Students: 1451,
 //   Companies: 50,
 //   Applications: 4000,
+
 // };
 
 const AdminHome = () => {
