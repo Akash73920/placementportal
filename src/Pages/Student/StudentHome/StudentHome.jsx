@@ -5,7 +5,7 @@ import companiesList from "../../../SampleData/CompanyList";
 import UpcomingCompanies from "../UpcomingCompanies/UpcomingCompanies";
 
 const StudentHome = () => {
-  const [companies, setCompanies] = useState(companiesList);
+  const [companies, setCompanies] = useState(companiesList);  //null list 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -24,7 +24,7 @@ const StudentHome = () => {
     getCompanies();
   }, []);
 
-  // if (loading) return <p className="text-gray-50">Loading...</p>;
+  // if (loading) return <p className="text-gray-50">Loading...</p>;  //uncommit
 
   // if (error) return <p className="text-red-500">{error}</p>;
 

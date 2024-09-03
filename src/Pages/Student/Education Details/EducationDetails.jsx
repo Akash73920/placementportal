@@ -3,7 +3,7 @@ import { fetchStudentEducation } from "../../../api/Student/Student.api";
 import SampleEducation from "../../../SampleData/EducationDetails";
 
 export default function EducationDetails() {
-  const [education, setEducation] = useState(SampleEducation);
+  const [education, setEducation] = useState(SampleEducation);    //null list 
   const [editing, setEditing] = useState(null);
   const [formData, setFormData] = useState({});
   const [newDegree, setNewDegree] = useState(false);
